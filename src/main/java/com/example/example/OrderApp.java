@@ -19,5 +19,6 @@ public class OrderApp {
 
         Order order = orderService.createOrder(1L, "itemA", 10000);
         System.out.println("order = " + order);
+        System.out.println("order = " + order.calculatePrice());
     }
 }

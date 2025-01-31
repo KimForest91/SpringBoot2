@@ -15,12 +15,13 @@ public class OrderServiceTest {
 
     @Test
     void createOrder() {
+        // long 으로 선언하면 null 이 아닌 0L 로 초기화 되어서 에러가 발생한다.
         Long memberId = 1L;
         Member member = new Member(memberId, "memberA", Grade.VIP);
 
         memberService.join(member);
 
         Order order = orderService.createOrder(memberId, "itemA", 10000);
-        Assertions.assertThat(order.getDiscountPrice()).isEqualTo(100);
+        Assertions.assertThat(order.getDiscountPrice()).isEqualTo(1000);
     }
 }
